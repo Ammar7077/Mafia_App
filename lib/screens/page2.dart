@@ -107,7 +107,7 @@ class Page2 extends StatelessWidget {
                               // Ring Color for Countdown Widget.
                               ringColor: Colors.white,
                               // Filling Color for Countdown Widget.
-                              fillColor: const Color.fromRGBO(200, 15, 15, 1)!,
+                              fillColor: const Color.fromRGBO(200, 15, 15, 1),
                               // Background Color for Countdown Widget.
                               backgroundColor: Colors.black,
 

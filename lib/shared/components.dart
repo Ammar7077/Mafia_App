@@ -47,8 +47,8 @@ Column textField(TextEditingController roleController, MyProvider provider) =>
         TextButton(
           onPressed: provider.callback
               ? () => provider.addToRoles({
-            provider.roleController.text: provider.number,
-          })
+                    provider.roleController.text: provider.number,
+                  })
               : null,
           child: Text("إضافة شخصية جديدة",
               style: TextStyle(
@@ -59,9 +59,8 @@ Column textField(TextEditingController roleController, MyProvider provider) =>
       ],
     );
 
-
 void navigateTo(context, route) =>
     Navigator.push(context, MaterialPageRoute(builder: (context) => route));
 
-Future navigateToReplacement(context, route) =>
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => route));
+Future navigateToReplacement(context, route) => Navigator.pushReplacement(
+    context, MaterialPageRoute(builder: (context) => route));

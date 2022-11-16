@@ -67,10 +67,9 @@ class Page2 extends StatelessWidget {
                 provider.index = 0;
                 provider.isEndTheGame = false;
                 provider.list.clear();
-                if (_isInterstitialAdLoaded)
-                  {
-                    _interstitialAd.show();
-                  }
+                if (_isInterstitialAdLoaded) {
+                  _interstitialAd.show();
+                }
               }
             },
             child: provider.index + 1 != provider.list.length

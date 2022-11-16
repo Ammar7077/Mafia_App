@@ -1,34 +1,60 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mafia_app/providers/provider.dart';
 
-Row role(String role, int number, MyProvider provider) => Row(
+getHeight(context) => MediaQuery.of(context).size.height;
+
+getWidth(context) => MediaQuery.of(context).size.width;
+
+Row role(String role, int number, MyProvider provider, size) => Row(
       children: [
-        Text(role),
+        Text(
+          role,
+          style: TextStyle(
+              color: Colors.white, fontSize: size, fontWeight: FontWeight.bold),
+        ),
         const Spacer(),
         IconButton(
-            onPressed: () => provider.minus(role, number),
-            icon: const Icon(Icons.remove)),
-        Text(number.toString()),
+          onPressed: () => provider.minus(role, number),
+          icon: const Icon(
+            Icons.remove,
+            color: Colors.white,
+            // color: Color.fromRGBO(203, 15, 15, 1),
+          ),
+        ),
+        Text(
+          number.toString(),
+          style: TextStyle(color: Colors.white, fontSize: size),
+        ),
         IconButton(
-            onPressed: () => provider.plus(role), icon: const Icon(Icons.add)),
+          onPressed: () => provider.plus(role),
+          icon: Icon(
+            Icons.add,
+            color: const Color.fromRGBO(203, 15, 15, 0.8),
+            size: size * 1.5,
+          ),
+        ),
       ],
     );
 
-Column textField(TextEditingController roleController, MyProvider provider) =>
+Column textField(
+        context, TextEditingController roleController, MyProvider provider) =>
     Column(
       children: [
         Row(
           children: [
             SizedBox(
-              width: 250,
+              width: getWidth(context) * 0.45,
               child: TextField(
                 onChanged: (role) => provider.check(role),
                 controller: roleController,
-                decoration: const InputDecoration(
-                  labelText: "شخصية جديدة",
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1.5, color: Colors.grey),
+                decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  fillColor: Colors.grey[300],
+                  filled: true,
+                  hintText: "شخصية جديدة",
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   ),
                 ),
@@ -37,25 +63,50 @@ Column textField(TextEditingController roleController, MyProvider provider) =>
             const Spacer(),
             IconButton(
                 onPressed: () => provider.minusNew(),
-                icon: const Icon(Icons.remove)),
-            Text(provider.number.toString()),
+                icon: const Icon(
+                  Icons.remove,
+                  color: Colors.white,
+                )),
+            Text(
+              provider.number.toString(),
+              style: TextStyle(
+                  color: Colors.white, fontSize: getHeight(context) * 0.022),
+            ),
             IconButton(
-                onPressed: () => provider.plusNew(),
-                icon: const Icon(Icons.add)),
+              onPressed: () => provider.plusNew(),
+              icon: const Icon(
+                Icons.add,
+                color: Color.fromRGBO(203, 15, 15, 0.8),
+              ),
+            ),
           ],
         ),
-        TextButton(
+        SizedBox(height: getHeight(context) * 0.01),
+        OutlinedButton(
           onPressed: provider.callback
-              ? () => provider.addToRoles({
+              ? () {
+                  provider.addToRoles({
                     provider.roleController.text: provider.number,
-                  })
+                  });
+                  provider.callback = false;
+                }
               : null,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+                provider.callback ? Colors.blue : Colors.grey[350]),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+          ),
           child: Text("إضافة شخصية جديدة",
               style: TextStyle(
-                  fontSize: 16,
-                  color: provider.callback ? Colors.blue : Colors.grey)),
+                  fontSize: getWidth(context) * 0.04,
+                  color: provider.callback ? Colors.white : Colors.black45,
+                  fontWeight: FontWeight.bold)),
         ),
-        const SizedBox(height: 50),
+        SizedBox(height: getHeight(context) * 0.1),
       ],
     );
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mafia_app/providers/provider.dart';
 import 'package:mafia_app/screens/home_page.dart';
-import 'package:mafia_app/screens/page2.dart';
-import 'package:mafia_app/shared/components.dart';
 import 'package:mafia_app/shared/themes.dart';
 import 'package:provider/provider.dart';
 

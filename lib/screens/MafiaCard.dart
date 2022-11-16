@@ -14,7 +14,7 @@ class MafiaCard extends StatelessWidget {
     return Consumer<MyProvider>(
       builder: (context, provider, child) => Scaffold(
         body: Container(
-          color: Colors.grey[600],
+          color: const Color.fromRGBO(52, 58, 64, 1),
           child: Center(
             child: SizedBox(
               width: width * 0.85,

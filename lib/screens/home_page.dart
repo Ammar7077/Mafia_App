@@ -1,11 +1,10 @@
 import 'dart:developer';
 
+import 'package:Mafia/screens/page2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mafia_app/providers/ads-provider.dart';
-import 'package:mafia_app/screens/page2.dart';
-import 'package:mafia_app/shared/ads-manager.dart';
 import 'package:provider/provider.dart';
+import '../providers/ads-provider.dart';
 import '../providers/provider.dart';
 import '../shared/components.dart';
 

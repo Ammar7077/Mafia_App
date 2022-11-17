@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mafia_app/providers/provider.dart';
+import '../providers/provider.dart';
 
 getHeight(context) => MediaQuery.of(context).size.height;
 

@@ -3,16 +3,14 @@ import 'dart:developer';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mafia_app/providers/provider.dart';
-import 'package:mafia_app/screens/home_page.dart';
-
-import 'package:mafia_app/shared/ads-manager.dart';
-
-import 'package:mafia_app/screens/MafiaCard.dart';
-
-import 'package:mafia_app/shared/components.dart';
 import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../providers/provider.dart';
+import '../shared/ads-manager.dart';
+import '../shared/components.dart';
+import 'MafiaCard.dart';
+import 'home_page.dart';
 
 class Page2 extends StatelessWidget {
   Page2({Key? key}) : super(key: key) {

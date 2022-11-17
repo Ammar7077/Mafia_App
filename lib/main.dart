@@ -1,8 +1,8 @@
+import 'package:Mafia/providers/ads-provider.dart';
+import 'package:Mafia/providers/provider.dart';
+import 'package:Mafia/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mafia_app/providers/ads-provider.dart';
-import 'package:mafia_app/providers/provider.dart';
-import 'package:mafia_app/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {

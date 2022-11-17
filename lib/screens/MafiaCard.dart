@@ -1,7 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:mafia_app/providers/provider.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/provider.dart';
 
 class MafiaCard extends StatelessWidget {
   final String name;
@@ -12,29 +13,27 @@ class MafiaCard extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Consumer<MyProvider>(
-      builder: (context, provider, child) => Scaffold(
-        body: Container(
-          color: const Color.fromRGBO(52, 58, 64, 1),
-          child: Center(
-            child: SizedBox(
-              width: width * 0.85,
-              height: height * 0.6,
-              child: FlipCard(
-                toggler: provider.toggler,
-                frontCard: AppCard(
-                    title: Image.asset(
-                  'assets/Mafia_Logo.png',
-                  height: height * 0.2,
-                )),
-                backCard: AppCard(
-                  title: Text(
-                    name,
-                    style: const TextStyle(
-                      fontSize: 30.0,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
+      builder: (context, provider, child) => Container(
+        color: const Color.fromRGBO(52, 58, 64, 1),
+        child: Center(
+          child: SizedBox(
+            width: width * 0.85,
+            height: height * 0.6,
+            child: FlipCard(
+              toggler: provider.toggler,
+              frontCard: AppCard(
+                  title: Image.asset(
+                    'assets/Mafia_Logo.png',
+                    height: height * 0.2,
+                  )),
+              backCard: AppCard(
+                title: Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),

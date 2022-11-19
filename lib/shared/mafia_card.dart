@@ -1,8 +1,7 @@
 import 'dart:math';
+import 'package:Mafia/providers/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/provider.dart';
 
 class MafiaCard extends StatelessWidget {
   final String name;
@@ -23,9 +22,9 @@ class MafiaCard extends StatelessWidget {
               toggler: provider.toggler,
               frontCard: AppCard(
                   title: Image.asset(
-                    'assets/Mafia_Logo.png',
-                    height: height * 0.2,
-                  )),
+                'assets/Mafia_Logo.png',
+                height: height * 0.2,
+              )),
               backCard: AppCard(
                 title: Text(
                   name,

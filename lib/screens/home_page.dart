@@ -1,12 +1,11 @@
 import 'dart:developer';
-
-import 'package:Mafia/screens/page2.dart';
+import 'package:Mafia/providers/ads-provider.dart';
+import 'package:Mafia/providers/provider.dart';
+import 'package:Mafia/screens/cards_page.dart';
+import 'package:Mafia/shared/components.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import '../providers/ads-provider.dart';
-import '../providers/provider.dart';
-import '../shared/components.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -25,18 +24,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     MyProvider provider = Provider.of<MyProvider>(context);
-
     AdsProvider adsProvider = Provider.of<AdsProvider>(context);
-
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(52, 58, 64, 1),
       appBar: AppBar(
         centerTitle: true,
         title: Image.asset('assets/Mafia_Logo.png',
-            fit: BoxFit.fill, height: height * 0.055),
+            fit: BoxFit.fill, height: getHeight(context) * 0.055),
         backgroundColor: Colors.black,
       ),
       body: Column(
@@ -52,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             provider.roles.keys.toList()[index + 1],
                             provider.roles.values.toList()[index + 1],
                             provider,
-                            width * 0.043)),
+                            getWidth(context) * 0.043)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),
@@ -79,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     "بدء اللعبة",
                     style: TextStyle(
-                        fontSize: width * 0.045,
+                        fontSize: getWidth(context) * 0.045,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
